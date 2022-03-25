@@ -3,5 +3,8 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
+    <h2>Accueil</h2>
+    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+        <p>Connecté</p>
+    {% endif %}
 {% endblock %}
