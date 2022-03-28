@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h2>Inscription</h2>
+    {{ form_start(form) }}
+    <p>Nom :</p>
+    {{ form_widget(form.nom) }}<br>
+    <p>Prénom :</p>
+    {{ form_widget(form.prenom) }}<br>
+    <p>Mail :</p>
+    {{ form_widget(form.mail) }}<br>
+    <p>Âge :</p>
+    {{ form_widget(form.age) }}<br>
+    <p>Mot de passe :</p>
+    {{ form_widget(form.motDePasse) }}<br>
+    <p>Confirmation du mot de passe :</p>
+    <input type="text"><br>
+    {{ form_rest(form) }}<br>
+    <button class="btn btn-light" type="submit">Inscription</button><br>
+    <br>
+    <a href="{{path('connexion')}}">J'ai déjà un compte.</a>
+    <br>
+    {{ form_end(form) }}
+{% endblock %}

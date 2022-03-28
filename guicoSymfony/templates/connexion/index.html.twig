@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <h2>Connexion</h2>
+    <form action="{{ path('connexion') }}" method="post">
+        <p>Mail :</p>
+        <input type="text" name="_username" value="{{ last_username }}"/><br>
+        <p>Mot de passe :</p>
+        <input name="_password" type="password"/><br>
+        <br>
+        <button class="btn btn-light" type="submit">Connexion</button><br>
+        <br>
+        <a href="{{path('inscription')}}">Je n'ai pas de compte.</a>
+        <br>
+    </form>
+{% endblock %}
