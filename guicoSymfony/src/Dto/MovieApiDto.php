@@ -45,6 +45,17 @@ class MovieApiDto{
         return 'https://image.tmdb.org/t/p/original'.$imageUrl;
     }
 
+    //Page au maximum 500
+    //Ne pas dire que ce sont les films les plus populaires (Car on va ajouter notre propre système de notation
+    //Donc il y aura surement une page avec "Les plus populaires" selon notre système de notation
+    public function getPopularMovies($page): stdClass
+    {
+         $response = $this->client->request(
+           'GET',
+           'https://api.themoviedb.org/3/movie/popular?api_key='.MovieApiDto::API_KEY3.'&language=fr-FR&page='.$page,
+         );
+         return json_decode($response->getContent());
+    }
 
     /**
      * @param mixed $client

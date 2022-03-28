@@ -16,18 +16,17 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
-    #[Route('/testpage', name: 'test')]
-    public function tester(): Response
+    #[Route('/testpage/{id}', name: 'test')]
+    public function tester($id): Response
     {
         $movieAppDto = new MovieApiDto();
         //$films = $movieAppDto->getFilmsByName("con");
-        $film = $movieAppDto->getFilmById(153);
-        $image = $movieAppDto->getImageFromName($film->backdrop_path);
-        //DD($films);
+        $films = $movieAppDto->getPopularMovies($id);
+        //$film = $movieAppDto->getFilmById($id);
+        //$image = $movieAppDto->getImageFromName($film->backdrop_path);
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'Accueil Controller',
-            'film'=>$film,
-            'image'=>$image
+            'films'=>$films,
         ]);
     }
 }

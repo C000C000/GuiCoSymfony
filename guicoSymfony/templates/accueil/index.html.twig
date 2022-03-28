@@ -4,7 +4,8 @@
 
 
 {% block body %}
-     <h1>{{ film.original_title }}</h1>
-     <a>{{ film.overview }}</a>
-    <img src="{{ image }}">
+           {% for result in films.results  %}
+            <a>{{ result.original_title }}</a>
+    <a>{{ result.id }}</a><br>
+            {% endfor %}
 {% endblock %}
