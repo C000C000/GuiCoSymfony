@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/guicoSymfony/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/guicoSymfony/tests" isTestSource="true" packagePrefix="App\Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/persistence" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/doctrine-migrations-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/var-exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/twig-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/twig-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/runtime" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/proxy-manager-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/maker-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/intl" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/framework-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/flex" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/doctrine-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/dependency-injection" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/cache-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/laminas/laminas-code" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/twig/intl-extra" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-client-contracts" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
