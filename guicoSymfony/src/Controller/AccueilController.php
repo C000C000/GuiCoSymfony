@@ -9,14 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccueilController extends AbstractController
 {
-    #[Route('/accueil', name: 'app_accueil')]
+    #[Route('/', name: 'accueil')]
     public function index(): Response
     {
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
         ]);
     }
-    #[Route('/testpage', name: 'test')]
+    /*#[Route('/testpage', name: 'test')]
     public function tester(): Response
     {
         $movieAppDto = new MovieApiDto();
@@ -29,6 +29,6 @@ class AccueilController extends AbstractController
             'film'=>$film,
             'image'=>$image
         ]);
-    }
+    }*/
 
 }
