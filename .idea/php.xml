@@ -66,6 +66,18 @@
       <path value="$PROJECT_DIR$/guicoSymfony/vendor/composer" />
       <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/guicoSymfony/vendor/symfony/web-profiler-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
