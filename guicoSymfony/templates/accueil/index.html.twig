@@ -12,13 +12,12 @@
             <div class="uneCase">
                 <h3>Catégories</h3>
                 {% for categorie in categories.genres %}
-                    <a class="button" href="{{ path('test', {'idCategory':categorie.id}) }}">{{ categorie.name }}</a>
+                    <a class="button" href="{{ path('app_resultat', {'idCategory':categorie.id}) }}">{{ categorie.name }}</a>
                 {% endfor %}
                 <br>
             </div>
         </div>
     </div>
-
     <style>
         .corps{
             width: auto;
