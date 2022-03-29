@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+        <div class="firstPart">
+            <h1>Création d'un nouvel utilisateur</h1>
+        </div>
+        <div class="block">
+            {{ include('crud_user/_form.html.twig') }}
+            <a class="btn btn-light" href="{{ path('profil')}}">Retour à la page de profil</a><br><br>
+            <a class="btn btn-light" href="{{ path('app_crud_user_index') }}">Voir la liste des utilisateurs</a>
+        </div>
+
+    <style>
+        .corps{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+        }
+        .firstPart{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+            text-align: center;
+        }
+        .block{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}

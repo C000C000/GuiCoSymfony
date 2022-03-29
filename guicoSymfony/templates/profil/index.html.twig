@@ -8,7 +8,13 @@
             <h1>Profil</h1>
             <br>
             {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('logout') }}"><span> Déconnexion </span></a>
+                <h2>Bienvenue sur ta page de profil {{ infoUser.prenom }}</h2>
+                <a href="{{ path('logout') }}"><span> Déconnexion </span></a><br>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_crud_user_new') }}"><span> Créer un nouvel utilisateur </span></a><br>
+                {% endif %}
+                <a href="{{ path('app_crud_user_edit') }}"><span> Modifier mon profil </span></a><br>
+                <a href="{{ path('app_crud_user_show') }}"><span> Mes informations </span></a><br>
             {% else %}
                 <a href="{{ path('connexion') }}"><span> Je me connecte </span></a><br/>
                 <a href="{{ path('inscription') }}"><span> Je m'inscris </span></a>

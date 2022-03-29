@@ -1,0 +1,34 @@
+<div class="corps">
+    <div class="block">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <br>
+        <button class="btn btn-light">{{ button_label|default('Sauvegarder') }}</button><br><br>
+        <a class="btn btn-light" href="{{ path('profil')}}">Retour à la page de profil</a>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+<style>
+    .corps{
+        width: auto;
+        height: auto;
+        border: 1px solid black;
+        margin: 2%;
+    }
+    .firstPart{
+        width: auto;
+        height: auto;
+        border: 1px solid black;
+        margin: 2%;
+        text-align: center;
+    }
+    .block{
+        width: auto;
+        height: auto;
+        border: 1px solid black;
+        margin: 2%;
+        text-align: center;
+    }
+
+</style>
