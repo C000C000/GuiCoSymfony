@@ -10,18 +10,9 @@
             <select class="form-select unMargin" aria-label="Default select example">
                 <option selected>Catégorie</option>
                 <!--Pour x in XXX -->    <!--Appel de l'API pour les catégories-->
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {% for categori in categorie.genres %}
+                    <option value="{{ categori.name }}">{{ categori.name }}</option>
+                {% endfor %}
             </select>
             <br>
             <div class="row unMargin">
