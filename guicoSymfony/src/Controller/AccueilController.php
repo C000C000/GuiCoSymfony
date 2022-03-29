@@ -12,18 +12,21 @@ class AccueilController extends AbstractController
     #[Route('/', name: 'accueil')]
     public function index(): Response
     {
+        $movieAppDto = new MovieApiDto();
+        $categories = $movieAppDto->getCategories();
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
+            'categories'=>$categories,
         ]);
     }
-    #[Route('/testpage', name: 'test')]
-    public function tester(): Response
+    #[Route('/testpage/{idCategory}', name: 'test')]
+    public function tester($idCategory): Response
     {
         $movieAppDto = new MovieApiDto();
         //$films = $movieAppDto->getFilmsByName("con");
         //$film = $movieAppDto->getFilmById($id);
         //$image = $movieAppDto->getImageFromName($film->backdrop_path);
-        $filmCategories = $movieAppDto->getFilmByCategoryId(16,20);
+        $filmCategories = $movieAppDto->getFilmByCategoryId($idCategory,20);
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'Accueil Controller',
             'movies' => $filmCategories,
