@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FilmsController extends AbstractController
 {
-    #[Route('/films', name: 'films')]
-    public function index(): Response
+    #[Route('/films/{page}', name: 'films')]
+    public function index($page): Response
     {
         $movieAppDto = new MovieApiDto();
         //Remplacer par page
-        $movies = $movieAppDto->getPopular(1);
+        $movies = $movieAppDto->getPopular($page);
         return $this->render('films/index.html.twig', [
             'controller_name' => 'FilmsController',
             'movies' => $movies,
