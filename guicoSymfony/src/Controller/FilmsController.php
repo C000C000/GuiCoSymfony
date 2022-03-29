@@ -13,12 +13,12 @@ class FilmsController extends AbstractController
     public function index(): Response
     {
         $movieAppDto = new MovieApiDto();
-        $categories = $movieAppDto->getCategories();
-
+        //Remplacer par page
+        $movies = $movieAppDto->getPopular(1);
         return $this->render('films/index.html.twig', [
             'controller_name' => 'FilmsController',
-            'categories'=>$categories,
-            'films'=>$films,
+            'movies' => $movies,
+            'controller' => $movieAppDto,
         ]);
     }
 }

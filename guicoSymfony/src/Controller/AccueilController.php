@@ -20,12 +20,9 @@ class AccueilController extends AbstractController
         ]);
     }
     #[Route('/testpage/{idCategory}', name: 'test')]
-    public function tester($idCategory): Response
+        public function tester($idCategory): Response
     {
         $movieAppDto = new MovieApiDto();
-        //$films = $movieAppDto->getFilmsByName("con");
-        //$film = $movieAppDto->getFilmById($id);
-        //$image = $movieAppDto->getImageFromName($film->backdrop_path);
         $filmCategories = $movieAppDto->getFilmByCategoryId($idCategory,20);
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'Accueil Controller',

@@ -4,17 +4,19 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .image {
+                 width:100px; /* you can use % */
+                 height: auto;
+             }
 </style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Xamp/htdocs/Symfony/ProjetTutoreSymfony/guicoSymfony/src/Controller/ResultatController.php'|file_link(0) }}">src/Controller/ResultatController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Xamp/htdocs/Symfony/ProjetTutoreSymfony/guicoSymfony/templates/resultat/index.html.twig'|file_link(0) }}">templates/resultat/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% for movie in movies %}
+        <a>{{ movie.original_title}}</a>
+        <br>
+        <img class="image" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}">
+        <br>
+        <a>{{ movie.overview|length > 150 ? movie.overview|slice(0, 50) ~ '...' : movie.overview }}</a>
+        {#        <a href="{{ path("",movie.id) }}"></a>#}
+        <br>
+    {% endfor %}
 {% endblock %}
