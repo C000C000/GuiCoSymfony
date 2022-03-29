@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FilmsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FilmsRepository::class)]
@@ -30,6 +32,14 @@ class Films
 
     #[ORM\Column(type: 'text')]
     private $description;
+
+    #[ORM\OneToMany(mappedBy: 'IdFilm', targetEntity: Note::class)]
+    private $notes;
+
+    public function __construct()
+    {
+        $this->notes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +114,36 @@ class Films
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Note>
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setIdFilm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getIdFilm() === $this) {
+                $note->setIdFilm(null);
+            }
+        }
 
         return $this;
     }
