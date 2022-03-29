@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
-
+{% block title %}Profil{% endblock %}
 
 {% block body %}
     <div class="corps">
         <div class="firstPart">
-            <h1>Accueil</h1>
-        </div>
-        <div class="block">
-            <div class="uneCase">
-                <h3>Catégories</h3>
-                <br>
-            </div>
+            <h1>Profil</h1>
+            <br>
+            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('logout') }}"><span> Déconnexion </span></a>
+            {% else %}
+                <a href="{{ path('connexion') }}"><span> Je me connecte </span></a><br/>
+                <a href="{{ path('inscription') }}"><span> Je m'inscris </span></a>
+            {% endif %}
         </div>
     </div>
 
@@ -36,14 +36,6 @@
             border: 1px solid black;
             margin: 2%;
 
-        }
-        .uneCase{
-            width: auto;
-            height: 350px;
-            border: 1px solid black;
-            padding: 1%;
-            margin: 2%;
-            text-align: left;
         }
     </style>
 {% endblock %}

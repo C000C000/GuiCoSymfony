@@ -3,16 +3,47 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <h2>Connexion</h2>
-    <form action="{{ path('connexion') }}" method="post">
-        <p>Mail :</p>
-        <input type="text" name="_username" value="{{ last_username }}"/><br>
-        <p>Mot de passe :</p>
-        <input name="_password" type="password"/><br>
-        <br>
-        <button class="btn btn-light" type="submit">Connexion</button><br>
-        <br>
-        <a href="{{path('inscription')}}">Je n'ai pas de compte.</a>
-        <br>
-    </form>
+    <div class="corps">
+        <div class="firstPart">
+            <h1>Connexion</h1>
+        </div>
+        <div class="block">
+            <form action="{{ path('connexion') }}" method="post">
+                <p>Mail :</p>
+                <input type="text" name="_username" value="{{ last_username }}"/><br>
+                <p>Mot de passe :</p>
+                <input name="_password" type="password"/><br>
+                <br>
+                <button class="btn btn-light" type="submit">Connexion</button><br>
+                <br>
+                <a href="{{path('inscription')}}">Je n'ai pas de compte.</a>
+                <br>
+            </form>
+            <br>
+        </div>
+    </div>
+
+    <style>
+        .corps{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+        }
+        .firstPart{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+            text-align: center;
+        }
+        .block{
+            width: auto;
+            height: auto;
+            border: 1px solid black;
+            margin: 2%;
+            text-align: center;
+        }
+
+    </style>
 {% endblock %}
