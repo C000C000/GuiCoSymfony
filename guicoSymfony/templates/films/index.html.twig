@@ -27,7 +27,7 @@
         <div class="mesFilms">
             <div class="uneCase">
                 <p>Titre :{{ movie.original_title}}  </p>
-                <img src="">
+                <img class="image" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}">
                 <p>Description : {{ movieDetails.overview}} </p>
                 <p>Durée : {{ movieDetails.runtime}} minutes</p>
                 <p>Réalisation : {% for producer in movieDetails.production_companies %}

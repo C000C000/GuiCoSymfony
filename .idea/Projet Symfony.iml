@@ -82,6 +82,7 @@
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/property-access" />
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/security-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/web-profiler-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/validator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
