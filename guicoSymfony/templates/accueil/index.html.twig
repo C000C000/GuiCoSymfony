@@ -2,7 +2,9 @@
 
 {% block title %}Accueil{% endblock %}
 
-
 {% block body %}
-
+    {% for movie in movies %}
+        <a>{{ movie.original_title }}</a>
+        <br>
+    {% endfor %}
 {% endblock %}

@@ -21,13 +21,12 @@ class AccueilController extends AbstractController
     {
         $movieAppDto = new MovieApiDto();
         //$films = $movieAppDto->getFilmsByName("con");
-        $film = $movieAppDto->getFilmById(153);
-        $image = $movieAppDto->getImageFromName($film->backdrop_path);
-        //DD($films);
+        //$film = $movieAppDto->getFilmById($id);
+        //$image = $movieAppDto->getImageFromName($film->backdrop_path);
+        $filmCategories = $movieAppDto->getFilmByCategoryId(16,20);
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'Accueil Controller',
-            'film'=>$film,
-            'image'=>$image
+            'movies' => $filmCategories,
         ]);
     }
 }

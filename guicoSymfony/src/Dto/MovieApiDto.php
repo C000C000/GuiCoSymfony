@@ -29,7 +29,6 @@ class MovieApiDto{
         return $content;
     }
 
-
     public function getFilmById($id):stdClass
     {
         $response = $this->client->request(
@@ -40,6 +39,34 @@ class MovieApiDto{
 //    <a>{{ film.overview }}</a>
         return json_decode($response->getContent());
     }
+    public function getFilmByCategoryId($id, $nbElements): array
+    {
+        $index = 1;
+        $filmsTab = array();
+        //Faire la récup des films par popularité
+        //Récupération du nombre d'éléments à afficher
+        while(count($filmsTab) < $nbElements){
+            //Récupération de tous les films populaires à l'index 1
+            $tempFilmList = $this->getPopular($index);
+            //On récuère chaque film de la liste
+            foreach($tempFilmList->results as $film){
+                //Récupération de chaque catégorie de film
+                foreach($film->genre_ids as $filmGenre){
+                    //Si la catégorie correspond à la catégorie filtrée
+                    if($filmGenre == $id){
+                        //Push dans le tableau
+                        array_push($filmsTab,$film);
+                    }
+                    if(count($filmsTab) == $nbElements){
+                        //On met le return ici parce que j'ai envie
+                        return $filmsTab;
+                    }
+                }
+            }
+            $index++;
+        }
+        return $filmsTab;
+    }
 
     public function getImageFromName($imageUrl): string{
         return 'https://image.tmdb.org/t/p/original'.$imageUrl;
@@ -48,13 +75,22 @@ class MovieApiDto{
     //Page au maximum 500
     //Ne pas dire que ce sont les films les plus populaires (Car on va ajouter notre propre système de notation
     //Donc il y aura surement une page avec "Les plus populaires" selon notre système de notation
-    public function getPopularMovies($page): stdClass
+    public function getPopular($page): stdClass
     {
          $response = $this->client->request(
            'GET',
            'https://api.themoviedb.org/3/movie/popular?api_key='.MovieApiDto::API_KEY3.'&language=fr-FR&page='.$page,
          );
          return json_decode($response->getContent());
+    }
+
+    public function getCategories():stdClass
+    {
+        $response = $this->client->request(
+            'GET',
+            'https://api.themoviedb.org/3/genre/movie/list?api_key='.MovieApiDto::API_KEY3,
+        );
+        return json_decode($response->getContent());
     }
 
     /**

@@ -70,6 +70,18 @@
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/security-http" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/form" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/security-core" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/security-csrf" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/password-hasher" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/security-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/guicoSymfony/vendor/symfony/web-profiler-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
