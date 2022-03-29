@@ -31,15 +31,18 @@
                 </form>
             </div>
         </div>
-        <!--Pour x in XXX -->
+        {% for movie in movies.results %}
+        {% set movieDetails = controller.getFilmById(movie.id) %}
         <div class="mesFilms">
             <div class="uneCase">
-                <p>Titre : </p>
+                <p>Titre :{{ movie.original_title}}  </p>
                 <img src="">
-                <p>Description : </p>
-                <p>Durée : </p>
-                <p>Réalisateur : </p>
-                <p>Acteurs : </p>
+                <p>Description : {{ movieDetails.overview}} </p>
+                <p>Durée : {{ movieDetails.runtime}} minutes</p>
+                <p>Réalisation : {% for producer in movieDetails.production_companies %}
+                    <a> {{ producer.name }}</a>
+                    {% endfor %}
+                </p>
                 <br>
                 <br>
                 <a href="#">
@@ -50,6 +53,7 @@
                 </a>
             </div>
         </div>
+        {% endfor %}
     </div>
 
     <style>

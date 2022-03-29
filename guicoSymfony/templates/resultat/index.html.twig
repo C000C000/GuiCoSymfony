@@ -16,7 +16,7 @@
         <img class="image" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}">
         <br>
         <a>{{ movie.overview|length > 150 ? movie.overview|slice(0, 50) ~ '...' : movie.overview }}</a>
-{#        <a href="{{ path("",movie.id) }}"></a>#}
+        {#        <a href="{{ path("",movie.id) }}"></a>#}
         <br>
     {% endfor %}
 {% endblock %}
