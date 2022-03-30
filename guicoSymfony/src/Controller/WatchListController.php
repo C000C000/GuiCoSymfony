@@ -21,12 +21,16 @@ class WatchListController extends AbstractController
     {
         $user = $this->getUser();
         $dto = new MovieApiDto();
-        $films = $listeFilmsRepository->getFilms($user->getId());
-        return $this->render('watch_list/index.html.twig', [
-            'controller_name' => 'WatchListController',
-            'films' => $films,
-            'controller'=>$dto,
-        ]);
+        if(!$user == null) {
+            $films = $listeFilmsRepository->getFilms($user->getId());
+            return $this->render('watch_list/index.html.twig', [
+                'controller_name' => 'WatchListController',
+                'films' => $films,
+                'controller' => $dto,
+            ]);
+        }else{
+            return $this->redirectToRoute('films', ['page'=>1]);
+        }
     }
 
 
@@ -46,20 +50,26 @@ class WatchListController extends AbstractController
         $liste->setIdUser($user);
         //DD($id);
         $liste->setIdFilm($id);
+        if(!$user == null){
+            $films = $listeFilmsRepository->getFilms($user->getId());
+            foreach($films as $film){
+                //DD($id);
+                if($film->getIdFilm() === intval($id)){
+                    DD("Ce film existe déjà dans votre liste.");
 
-        $films = $listeFilmsRepository->getFilms($user->getId());
-
-        foreach($films as $film){
-            //DD($id);
-            if($film->getIdFilm() === intval($id)){
-                DD("Ce film existe déjà dans votre liste.");
-
+                }
             }
+            //Sinon si on a pas eu le render avant
+            $entityManagerInterface->persist($liste);
+            $entityManagerInterface->flush();
+            return $this->redirectToRoute('watch_list');
+        }else{
+            //return nouvelle page qui demande à l'utilisateur de se connecter
+            //Pour afficher ses films
+            return $this->redirectToRoute('films');
         }
-        //Sinon si on a pas eu le render avant
-        $entityManagerInterface->persist($liste);
-        $entityManagerInterface->flush();
-        return $this->redirectToRoute('watch_list');
+
+
     }
 
     /**
