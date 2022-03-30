@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FicheFilmController!{% endblock %}
+
+{% block body %}
+    <a href=" {{ path('films', { 'page':1 }) }}">Retour</a>
+    <h1>{{ movie.original_title }}</h1><br>
+    <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}"><br>
+    <h6>Date de sortie: {{ movie.release_date }}</h6>
+    <h3>Description: </h3><br>
+    <a>{{ movie.overview }}</a><br>
+    <h3>Durée du film: </h3><br>
+    <a>-{{ movie.runtime }} minutes</a><br>
+    <h3>Coût du film: </h3><br>
+    <a>{{ movie.budget }} dollars</a><br>
+    Flemme de rajouter le reste on fera plus tard
+{% endblock %}

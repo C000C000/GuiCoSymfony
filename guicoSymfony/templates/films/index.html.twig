@@ -16,23 +16,24 @@
             </select>
             <br>
             <div class="row unMargin">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film..." name="search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{{ path('filmsByName') }}">Rechercher</button>
-                </form>
+
+                {{ form_start(form) }}
+                <button class="btn btn-light" type="submit">Rechercher</button><br>
+                {{ form_end(form) }}
+
             </div>
         </div>
-        <div class="block_cat">
-            <div class="uneCase_Cat">
-                <h3>Catégories</h3>
-                <br>
-                <p>Voici l'ensemble des films selon leurs catégories.</p>
-                {% for categorie in categories.genres %}
-                    <a style="font-size: 15px;" class="btn btn-light" href="{{ path('app_resultat', {'idCategory':categorie.id}) }}">{{ categorie.name }}</a>
-                {% endfor %}
-                <br>
-            </div>
-        </div>
+{#        <div class="block_cat">#}
+{#            <div class="uneCase_Cat">#}
+{#                <h3>Catégories</h3>#}
+{#                <br>#}
+{#                <p>Voici l'ensemble des films selon leurs catégories.</p>#}
+{#                {% for categorie in categories.genres %}#}
+{#                    <a style="font-size: 15px;" class="btn btn-light" href="{{ path('app_resultat', {'idCategory':categorie.id}) }}">{{ categorie.name }}</a>#}
+{#                {% endfor %}#}
+{#                <br>#}
+{#            </div>#}
+{#        </div>#}
         {% for movie in movies.results %}
         {% set movieDetails = controller.getFilmById(movie.id) %}
         <div class="mesFilms">
@@ -42,7 +43,7 @@
                 <img class="image" style="width: 50%; height: 40%; text-align: center;" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}">
                 <br>
                 <br>
-                <p><strong>Description :</strong> {{ movieDetails.overview}} </p>
+                <p><strong>Description :</strong> {{ movie.overview|length > 150 ? movie.overview|slice(0, 150) ~ '...' : movie.overview }} </p>
                 <p><strong>Durée :</strong> {{ movieDetails.runtime}} minutes</p>
                 <p><strong>Réalisation :</strong>
                     {% for producer in movieDetails.production_companies %}
@@ -64,8 +65,8 @@
                         Ajouter aux favoris
                     </a>
                 {% endif %}
-
-
+                <br>
+                <a href="{{ path('app_fiche_film', {'id':movie.id}) }}">En savoir plus</a>
             </div>
         </div>
             <hr>
