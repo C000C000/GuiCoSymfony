@@ -55,7 +55,7 @@ class CrudUserController extends AbstractController
     }
 
     #[Route('/edit', name: 'app_crud_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, UserRepository $userRepository): Response
+    public function edit(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -64,6 +64,20 @@ class CrudUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $plaintextPassword = $user->getPassword();
+            $hashedPassword = $passwordHasher->hashPassword(
+                $user,
+                $plaintextPassword
+            );
+
+            $user->setNom($user->getNom());
+            $user->setPrenom($user->getPrenom());
+            $user->setMail($user->getMail());
+            $user->setAge($user->getAge());
+            $user->setMotDePasse($hashedPassword);
+            $user->setRole('ROLE_USER');
+
             $userRepository->add($user);
             return $this->redirectToRoute('app_crud_user_show', [], Response::HTTP_SEE_OTHER);
         }

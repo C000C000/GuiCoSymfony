@@ -8,15 +8,7 @@
         <div class="firstPart">
             <h1>Accueil</h1>
         </div>
-        <div class="block">
-            <div class="uneCase">
-                <h3>Catégories</h3>
-                {% for categorie in categories.genres %}
-                    <a class="button" href="{{ path('app_resultat', {'idCategory':categorie.id}) }}">{{ categorie.name }}</a>
-                {% endfor %}
-                <br>
-            </div>
-        </div>
+
     </div>
     <style>
         .corps{
@@ -28,14 +20,14 @@
         .firstPart{
             width: auto;
             height: 250px;
-            border: 1px solid black;
+            border: 0px solid black;
             margin: 2%;
             text-align: center;
         }
         .block{
             width: auto;
             height: auto;
-            border: 1px solid black;
+            border: 0px solid black;
             margin: 2%;
 
         }
@@ -45,7 +37,7 @@
             border: 1px solid black;
             padding: 1%;
             margin: 2%;
-            text-align: left;
+            text-align: center;
         }
         .button {
              font: bold 11px Arial;

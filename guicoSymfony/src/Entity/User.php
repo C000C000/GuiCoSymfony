@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -32,6 +34,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'text')]
     private $role;
+
+    #[ORM\OneToMany(mappedBy: 'IdUser', targetEntity: ListeFilms::class)]
+    private $listeFilms;
+
+    public function __construct()
+    {
+        $this->listeFilms = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -127,5 +137,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return $this->getMail();
+    }
+
+    /**
+     * @return Collection<int, ListeFilms>
+     */
+    public function getListeFilms(): Collection
+    {
+        return $this->listeFilms;
+    }
+
+    public function addListeFilm(ListeFilms $listeFilm): self
+    {
+        if (!$this->listeFilms->contains($listeFilm)) {
+            $this->listeFilms[] = $listeFilm;
+            $listeFilm->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListeFilm(ListeFilms $listeFilm): self
+    {
+        if ($this->listeFilms->removeElement($listeFilm)) {
+            // set the owning side to null (unless already changed)
+            if ($listeFilm->getIdUser() === $this) {
+                $listeFilm->setIdUser(null);
+            }
+        }
+
+        return $this;
     }
 }
