@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Dto\RechercheDto;
+use App\Entity\Note;
 use App\Form\RechercheType;
 use MovieApiDto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,7 @@ class FilmsController extends AbstractController
         #[Route('/films/{page}', name: 'films')]
     public function index($page, Request $request): Response
     {
+
 
         $recherche = new RechercheDto();
         $form = $this->createForm(RechercheType::class);
@@ -31,6 +33,8 @@ class FilmsController extends AbstractController
         }else{
             $movies = $movieAppDto->getPopular($page);
         }
+
+
 
         return $this->render('films/index.html.twig', [
             'controller_name' => 'FilmsController',

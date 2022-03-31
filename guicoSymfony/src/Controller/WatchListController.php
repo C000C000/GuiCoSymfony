@@ -55,7 +55,11 @@ class WatchListController extends AbstractController
             foreach($films as $film){
                 //DD($id);
                 if($film->getIdFilm() === intval($id)){
-                    DD("Ce film existe déjà dans votre liste.");
+                    echo "<script>
+                            alert(\"Ce film est déjà présent dans votre liste.\")
+                        </script>";
+
+                    return $this->redirectToRoute('accueil');
 
                 }
             }

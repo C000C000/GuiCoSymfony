@@ -1,7 +1,23 @@
 <div class="corps">
     <div class="block">
         {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <p>Nom :</p>
+        {{ form_widget(form.nom) }}
+        <p>Prénom :</p>
+        {{ form_widget(form.prenom) }}
+        <p>Mail :</p>
+        {{ form_widget(form.mail) }}
+        <p>Âge :</p>
+        {{ form_widget(form.age) }}
+        <p>Mot de passe :</p>
+        {{ form_widget(form.motDePasse) }}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <p>Role :</p>
+            {{ form_widget(form.role) }}
+           {% else %}
+
+        {% endif %}
         <br>
         <button class="btn btn-light">{{ button_label|default('Sauvegarder') }}</button><br><br>
         <a class="btn btn-light" href="{{ path('profil')}}">Retour à la page de profil</a>
@@ -13,20 +29,20 @@
     .corps{
         width: auto;
         height: auto;
-        border: 1px solid black;
+        border: 0px solid black;
         margin: 2%;
     }
     .firstPart{
         width: auto;
         height: auto;
-        border: 1px solid black;
+        border: 0px solid black;
         margin: 2%;
         text-align: center;
     }
     .block{
         width: auto;
         height: auto;
-        border: 1px solid black;
+        border: 0px solid black;
         margin: 2%;
         text-align: center;
     }

@@ -12,11 +12,31 @@ class InscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('mail')
-            ->add('age')
-            ->add('motDePasse')
+            ->add('nom', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
+            ->add('prenom', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
+            ->add('mail', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
+            ->add('age', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
+            ->add('motDePasse', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
             //->add('role')
         ;
     }
