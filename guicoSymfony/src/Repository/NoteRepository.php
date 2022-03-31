@@ -46,13 +46,19 @@ class NoteRepository extends ServiceEntityRepository
     }
 
     public function getMoyenne($id){
-        $entityManager = $this->getEntityManager();
-        $query = $entityManager->createQuery(
-            'DELETE p
-            FROM App\Entity\Note p
-            WHERE p.IdFilm = :id'
-        )
-            ->setParameter('id', $id);
+//        $entityManager = $this->getEntityManager();
+//        $query = $entityManager->createQuery(
+//            'Select p
+//            FROM App\Entity\Note p
+//            WHERE p.IdFilm = :idFilm'
+//        )
+//            ->setParameter('idFilm', $id);
+//        DD($query->getResult());
+        $rq = $this->createQueryBuilder('p')
+            ->where('p.IdFilm = :idFilm')
+            ->setParameter('idFilm', $id);
+        $query = $rq->getQuery();
+        DD($query->execute());
     }
     // /**
     //  * @return Note[] Returns an array of Note objects

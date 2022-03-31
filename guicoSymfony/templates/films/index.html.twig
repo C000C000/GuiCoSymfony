@@ -39,6 +39,7 @@
 {#        </div>#}
         {% for movie in movies %}
         {% set movieDetails = controller.getFilmById(movie.id) %}
+{#            {{ repo.getMoyenne(movie.id) }}#}
         <div class="mesFilms">
             <div class="uneCase">
                 <br>

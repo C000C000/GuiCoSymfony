@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Dto\RechercheDto;
 use App\Form\RechercheType;
+use App\Repository\NoteRepository;
 use MovieApiDto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,12 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class FilmsController extends AbstractController
 {
         #[Route('/films/{page}', name: 'films')]
-    public function index($page, Request $request): Response
+    public function index($page, Request $request, NoteRepository $noteRepository): Response
     {
-
-        $recherche = new RechercheDto();
         $form = $this->createForm(RechercheType::class);
-
         $movieAppDto = new MovieApiDto();
         //Remplacer par page
         $categories = $movieAppDto->getCategories();
@@ -38,7 +36,7 @@ class FilmsController extends AbstractController
                 $movies = $movieAppDto->getPopular(1)->results;
             }
         }
-
+        //$noteRepository->getMoyenne(1054);
         //Si on utilise getPopular => $movies->results
         //Sinon juste movies
         return $this->render('films/index.html.twig', [
@@ -49,6 +47,7 @@ class FilmsController extends AbstractController
             'categories'=>$categories,
             'form'=>$form->createView(),
             'user' => $user,
+            'repo' => $noteRepository,
         ]);
     }
     #[Route('/films', name: 'filmsByName')]

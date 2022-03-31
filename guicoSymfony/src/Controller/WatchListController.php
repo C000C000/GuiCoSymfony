@@ -44,11 +44,8 @@ class WatchListController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
         $liste = new ListeFilms();
-        $dto = new MovieApiDto();
 
-        $mesFilms = array();
         $liste->setIdUser($user);
-        //DD($id);
         $liste->setIdFilm($id);
         if(!$user == null){
             $films = $listeFilmsRepository->getFilms($user->getId());
@@ -58,9 +55,7 @@ class WatchListController extends AbstractController
                     echo "<script>
                             alert(\"Ce film est déjà présent dans votre liste.\")
                         </script>";
-
                     return $this->redirectToRoute('accueil');
-
                 }
             }
             //Sinon si on a pas eu le render avant
