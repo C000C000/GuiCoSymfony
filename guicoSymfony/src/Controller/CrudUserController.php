@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\UserSimpleType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,8 +61,14 @@ class CrudUserController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        if($user->getRole() === 'ROLE_USER'){
+            $form = $this->createForm(UserSimpleType::class, $user);
+            $form->handleRequest($request);
+        }else{
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
+        }
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 

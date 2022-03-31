@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class UserSimpleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -33,11 +33,6 @@ class UserType extends AbstractType
                 ]
             ])
             ->add('motDePasse', null, [
-                'attr' => [
-                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
-                ]
-            ])
-            ->add('role', null, [
                 'attr' => [
                     'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
                 ]

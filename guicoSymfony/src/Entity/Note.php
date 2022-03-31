@@ -17,8 +17,7 @@ class Note
     #[ORM\JoinColumn(nullable: false)]
     private $IdUser;
 
-    #[ORM\ManyToOne(targetEntity: Films::class, inversedBy: 'notes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\Column(type: 'integer')]
     private $IdFilm;
 
     #[ORM\Column(type: 'integer')]
@@ -41,12 +40,12 @@ class Note
         return $this;
     }
 
-    public function getIdFilm(): ?Films
+    public function getIdFilm(): ?int
     {
         return $this->IdFilm;
     }
 
-    public function setIdFilm(?Films $IdFilm): self
+    public function setIdFilm(?int $IdFilm): self
     {
         $this->IdFilm = $IdFilm;
 

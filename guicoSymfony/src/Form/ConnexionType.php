@@ -15,9 +15,17 @@ class ConnexionType extends AbstractType
         $builder
             //->add('nom')
             //->add('prenom')
-            ->add('mail')
+            ->add('mail', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
             //->add('age')
-            ->add('motDePasse')
+            ->add('motDePasse', null, [
+                'attr' => [
+                    'style' => "display: flex; margin-left: auto; margin-right: auto; width: 30%;"
+                ]
+            ])
             //->add('role')
         ;
     }
