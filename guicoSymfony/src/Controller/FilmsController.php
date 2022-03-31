@@ -22,16 +22,25 @@ class FilmsController extends AbstractController
         $movieAppDto = new MovieApiDto();
         //Remplacer par page
         $categories = $movieAppDto->getCategories();
-
+        /** @var User $user */
+        $user = $this->getUser();
         //Récup data form
         $form->handleRequest($request);
         $data = $form->getData();
         if(!$data == null){
             $movies = $movieAppDto->getFilmsByName($data->getInput());
         }else{
-            $movies = $movieAppDto->getPopular($page);
+            //Utiliser cette méthode si l'utilisateur a moins de 18 ans
+            //Sinon utiliser l'ancienne avec getPopular
+            if(!$user == null && $user->getAge() >= 18){
+                $movies = $movieAppDto->getFilmAdultContentFiltered(10,false);
+            }else{
+                $movies = $movieAppDto->getPopular(1)->results;
+            }
         }
 
+        //Si on utilise getPopular => $movies->results
+        //Sinon juste movies
         return $this->render('films/index.html.twig', [
             'controller_name' => 'FilmsController',
             'categorie' => $categories,
@@ -39,6 +48,7 @@ class FilmsController extends AbstractController
             'controller' => $movieAppDto,
             'categories'=>$categories,
             'form'=>$form->createView(),
+            'user' => $user,
         ]);
     }
     #[Route('/films', name: 'filmsByName')]

@@ -15,6 +15,9 @@
                 {% endfor %}
             </select>
             <br>
+            {% if user != null and user.getAge() <= 18 %}
+            <a>Vous n'avez pas plus de 18 ans ! </a>
+            {% endif %}
             <div class="row unMargin">
 
                 {{ form_start(form) }}
@@ -34,7 +37,7 @@
 {#                <br>#}
 {#            </div>#}
 {#        </div>#}
-        {% for movie in movies.results %}
+        {% for movie in movies %}
         {% set movieDetails = controller.getFilmById(movie.id) %}
         <div class="mesFilms">
             <div class="uneCase">

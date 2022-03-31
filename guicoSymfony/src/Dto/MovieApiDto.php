@@ -39,7 +39,7 @@ class MovieApiDto{
 //    <a>{{ film.overview }}</a>
         return json_decode($response->getContent());
     }
-    public function getFilmByCategoryId($id, $nbElements): array
+    public function getFilmByCategoryId($id, $nbElements, $adultContentEnabled): array
     {
         $index = 1;
         $filmsTab = array();
@@ -51,9 +51,10 @@ class MovieApiDto{
             //On récuère chaque film de la liste
             foreach($tempFilmList->results as $film){
                 //Récupération de chaque catégorie de film
+                //DD($film);
                 foreach($film->genre_ids as $filmGenre){
                     //Si la catégorie correspond à la catégorie filtrée
-                    if($filmGenre == $id){
+                    if($filmGenre == $id && $film->adult == $adultContentEnabled){
                         //Push dans le tableau
                         array_push($filmsTab,$film);
                     }
@@ -82,6 +83,37 @@ class MovieApiDto{
            'https://api.themoviedb.org/3/movie/popular?api_key='.MovieApiDto::API_KEY3.'&language=fr-FR&page='.$page,
          );
          return json_decode($response->getContent());
+    }
+
+    public function getFilmAdultContentFiltered($nbElements, $adultContentEnabled):array
+    {
+        $index = 1;
+        $filmsTab = array();
+        //Faire la récup des films par popularité
+        //Récupération du nombre d'éléments à afficher
+        while(count($filmsTab) < $nbElements){
+            //Récupération de tous les films populaires à l'index 1
+            $tempFilmList = $this->getPopular($index);
+            //On récuère chaque film de la liste
+            foreach($tempFilmList->results as $film){
+                //Récupération de chaque catégorie de film
+                //DD($film);
+                //Si la catégorie correspond à la catégorie filtrée
+                //DD(boolval($film->adult));
+                if( boolval($film->adult) == $adultContentEnabled){
+                    //Push dans le tableau
+                    array_push($filmsTab,$film);
+                }
+                if(count($filmsTab) == $nbElements){
+                    //DD($filmsTab);
+
+                    //On met le return ici parce que j'ai envie
+                    return $filmsTab;
+                }
+            }
+            $index++;
+        }
+        return $filmsTab;
     }
 
     public function getCategories():stdClass
