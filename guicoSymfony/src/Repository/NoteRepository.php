@@ -45,6 +45,15 @@ class NoteRepository extends ServiceEntityRepository
         }
     }
 
+    public function getMoyenne($id){
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'DELETE p
+            FROM App\Entity\Note p
+            WHERE p.IdFilm = :id'
+        )
+            ->setParameter('id', $id);
+    }
     // /**
     //  * @return Note[] Returns an array of Note objects
     //  */
