@@ -25,8 +25,9 @@ class FilmsController extends AbstractController
         //Récup data form
         $form->handleRequest($request);
         $data = $form->getData();
+       // DD($data->getInput());
         if(!$data == null){
-            $movies = $movieAppDto->getFilmsByName($data->getInput());
+            $movies = $movieAppDto->getFilmsByName($data->getInput())->results;
         }else{
             //Utiliser cette méthode si l'utilisateur a moins de 18 ans
             //Sinon utiliser l'ancienne avec getPopular
@@ -38,6 +39,7 @@ class FilmsController extends AbstractController
         }
         //Si on utilise getPopular => $movies->results
         //Sinon juste movies
+        //DD($movies);
         return $this->render('films/index.html.twig', [
             'controller_name' => 'FilmsController',
             'categorie' => $categories,

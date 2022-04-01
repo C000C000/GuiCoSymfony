@@ -73,6 +73,25 @@ class NoteRepository extends ServiceEntityRepository
 //        $query = $rq->getQuery();
 //        DD($query->execute());
     }
+    public function isNoted($idUser, $idFilm): bool{
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'Select p
+            FROM App\Entity\Note p
+            WHERE p.IdUser = :idUser and p.IdFilm = :IdFilm'
+        )
+            ->setParameter('idUser', $idUser)
+            ->setParameter('IdFilm', $idFilm)
+        ;
+
+        $res = $query->getResult();
+        //DD($res);
+        if(!$res == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
     // /**
     //  * @return Note[] Returns an array of Note objects
     //  */

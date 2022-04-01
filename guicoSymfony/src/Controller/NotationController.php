@@ -33,16 +33,19 @@ class NotationController extends AbstractController
 //     * @Route("/notation/addNote/{id}/{note}", name="AddNOTE")
 //     */
     #[Route('notation/addNote/{id}/{note}', name: 'AddNOTE')]
-    public function addNote($id, int $note, EntityManagerInterface $entityManager ): Response
+    public function addNote($id, int $note, EntityManagerInterface $entityManager, NoteRepository $noteRepository ): Response
     {
         $user = $this->getUser();
         if(!$user == null){
             $newnote = new Note();
-            $newnote->setIdUser($user);
-            $newnote->setIdFilm($id);
-            $newnote->setNote($note);
-            $entityManager->persist($newnote);
-            $entityManager->flush();
+            if($noteRepository->isNoted($user->getId(), $id)){
+                $newnote->setIdUser($user);
+                $newnote->setIdFilm($id);
+                $newnote->setNote($note);
+                $entityManager->persist($newnote);
+                $entityManager->flush();
+            }
+
             return $this->redirectToRoute('films', [
                 'page' => 1,
             ]);

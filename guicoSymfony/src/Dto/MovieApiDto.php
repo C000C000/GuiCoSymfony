@@ -12,19 +12,12 @@ class MovieApiDto{
         $this->setClient(HttpClient::create());
     }
 
-
     public function getFilmsByName($nomFilm):stdClass
     {
         $response = $this->client->request(
             'GET',
-            'https://api.themoviedb.org/3/search/movie?api_key='.MovieApiDto::API_KEY3.'&query='.$nomFilm,
+            'https://api.themoviedb.org/3/search/movie?api_key='.MovieApiDto::API_KEY3.'&query='.$nomFilm.'&language=fr',
         );
-        
-        //Pour l'afficher :
-//        {% for result in films.results  %}
-//        <a>{{ result.original_title }}</a>
-//          <a>{{ result.id }}</a><br>
-//          {% endfor %}
         $content = json_decode($response->getContent());
         return $content;
     }
@@ -33,10 +26,8 @@ class MovieApiDto{
     {
         $response = $this->client->request(
           'GET',
-            'https://api.themoviedb.org/3/movie/'.$id.'?api_key='.MovieApiDto::API_KEY3
+            'https://api.themoviedb.org/3/movie/'.$id.'?api_key='.MovieApiDto::API_KEY3.'&language=fr'
         );
-//        <h1>{{ film.original_title }}</h1>
-//    <a>{{ film.overview }}</a>
         return json_decode($response->getContent());
     }
     public function getFilmByCategoryId($id, $nbElements, bool $adultContentEnabled = null): array
@@ -80,7 +71,7 @@ class MovieApiDto{
     {
          $response = $this->client->request(
            'GET',
-           'https://api.themoviedb.org/3/movie/popular?api_key='.MovieApiDto::API_KEY3.'&language=fr-FR&page='.$page,
+           'https://api.themoviedb.org/3/movie/popular?api_key='.MovieApiDto::API_KEY3.'&page='.$page.'&language=fr',
          );
          return json_decode($response->getContent());
     }
@@ -120,7 +111,7 @@ class MovieApiDto{
     {
         $response = $this->client->request(
             'GET',
-            'https://api.themoviedb.org/3/genre/movie/list?api_key='.MovieApiDto::API_KEY3,
+            'https://api.themoviedb.org/3/genre/movie/list?api_key='.MovieApiDto::API_KEY3.'&language=fr',
         );
         return json_decode($response->getContent());
     }
