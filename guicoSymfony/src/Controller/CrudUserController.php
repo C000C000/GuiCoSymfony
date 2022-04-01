@@ -105,12 +105,14 @@ class CrudUserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_crud_user_delete', methods: ['POST'])]
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    public function delete(Request $request, UserRepository $userRepository): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user);
         }
 
-        return $this->redirectToRoute('app_crud_user_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('accueil', [], Response::HTTP_SEE_OTHER);
     }
 }

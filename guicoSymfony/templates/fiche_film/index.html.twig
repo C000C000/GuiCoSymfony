@@ -17,8 +17,11 @@
                     <br>
                     <br>
                     <p><strong>Description :</strong> {{ movie.overview }} </p>
+                    <p><strong>Langage :</strong>{{ movie.original_language }}</p>
+                    <p><strong>Page officielle :</strong><a href="{{ movie.original_language }}"> {{ movie.homepage }} </a></p>
                     <p><strong>Durée :</strong> {{ movie.runtime }} minutes.</p>
                     <p><strong>Coût de la production :</strong> {{ movie.budget }} dollars.</p>
+
                 </div>
             </div>
             <hr>
