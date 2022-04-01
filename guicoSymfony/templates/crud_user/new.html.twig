@@ -5,11 +5,10 @@
 {% block body %}
         <div class="firstPart">
             <h1>Création d'un nouvel utilisateur</h1>
-        </div>
-        <div class="block">
+
             {{ include('crud_user/_form.html.twig') }}
-            <a class="btn btn-light" href="{{ path('profil')}}">Retour à la page de profil</a><br><br>
-            <a class="btn btn-light" href="{{ path('app_crud_user_index') }}">Voir la liste des utilisateurs</a>
+            {#<a class="btn btn-light" href="{{ path('profil')}}">Retour à la page de profil</a><br><br>
+            <a class="btn btn-light" href="{{ path('app_crud_user_index') }}">Voir la liste des utilisateurs</a>#}
         </div>
 
     <style>
@@ -18,6 +17,8 @@
             height: auto;
             border: 0px solid black;
             margin: 2%;
+            background-color: #BAD4D8;
+            border-radius: 50px;
         }
         .firstPart{
             width: auto;
@@ -25,6 +26,9 @@
             border: 0px solid black;
             margin: 2%;
             text-align: center;
+            background-color: #BAD4D8;
+            border-radius: 50px;
+
         }
         .block{
             width: auto;
@@ -32,6 +36,7 @@
             border: 0px solid black;
             margin: 2%;
             text-align: center;
+
         }
 
     </style>

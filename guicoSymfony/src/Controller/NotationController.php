@@ -6,6 +6,7 @@ use App\Entity\Films;
 use App\Entity\ListeFilms;
 use App\Entity\Note;
 use App\Repository\FilmsRepository;
+use App\Repository\NoteRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,7 +33,7 @@ class NotationController extends AbstractController
 //     * @Route("/notation/addNote/{id}/{note}", name="AddNOTE")
 //     */
     #[Route('notation/addNote/{id}/{note}', name: 'AddNOTE')]
-    public function addNote($id, int $note, EntityManagerInterface $entityManager): Response
+    public function addNote($id, int $note, EntityManagerInterface $entityManager ): Response
     {
         $user = $this->getUser();
         if(!$user == null){

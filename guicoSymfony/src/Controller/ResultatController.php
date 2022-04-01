@@ -13,7 +13,15 @@ class ResultatController extends AbstractController
     public function index($idCategory): Response
     {
         $movieAppDto = new MovieApiDto();
-        $filmCategories = $movieAppDto->getFilmByCategoryId($idCategory,25);
+        $user = $this->getUser();
+        $unAge = $user->getAge();
+        if($unAge < 18){
+            $filmCategories = $movieAppDto->getFilmByCategoryId($idCategory,25, false);
+        }else{
+            $filmCategories = $movieAppDto->getFilmByCategoryId($idCategory,25);
+        }
+
+
         return $this->render('resultat/index.html.twig', [
             'controller_name' => 'ResultatController',
             'movies' => $filmCategories,

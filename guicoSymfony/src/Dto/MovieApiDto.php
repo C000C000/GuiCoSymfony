@@ -39,7 +39,7 @@ class MovieApiDto{
 //    <a>{{ film.overview }}</a>
         return json_decode($response->getContent());
     }
-    public function getFilmByCategoryId($id, $nbElements, $adultContentEnabled): array
+    public function getFilmByCategoryId($id, $nbElements, bool $adultContentEnabled = null): array
     {
         $index = 1;
         $filmsTab = array();

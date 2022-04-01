@@ -55,7 +55,7 @@ class WatchListController extends AbstractController
                     echo "<script>
                             alert(\"Ce film est déjà présent dans votre liste.\")
                         </script>";
-                    return $this->redirectToRoute('accueil');
+                    return $this->redirectToRoute('redirect');
                 }
             }
             //Sinon si on a pas eu le render avant

@@ -3,17 +3,20 @@
 {% block title %}Modifier les informations{% endblock %}
 
 {% block body %}
+
     <div class="firstPart">
         <h1>Modifications</h1>
-    </div>
     {{ include('crud_user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-
+        <br>
+    </div>
     <style>
         .corps{
             width: auto;
             height: auto;
             border: 0px solid black;
             margin: 2%;
+            background-color: #EFE7CA;
+            border-radius: 50px;
         }
         .firstPart{
             width: auto;
@@ -21,6 +24,8 @@
             border: 0px solid black;
             margin: 2%;
             text-align: center;
+            border-radius: 50px;
+            background-color: #BAD4D8;
         }
         .block{
             width: auto;

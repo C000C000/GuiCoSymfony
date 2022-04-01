@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FilmsController extends AbstractController
 {
-        #[Route('/films/{page}', name: 'films')]
+    #[Route('/films/{page}', name: 'films')]
     public function index($page, Request $request, NoteRepository $noteRepository): Response
     {
         $form = $this->createForm(RechercheType::class);
@@ -36,7 +36,6 @@ class FilmsController extends AbstractController
                 $movies = $movieAppDto->getPopular(1)->results;
             }
         }
-        //$noteRepository->getMoyenne(1054);
         //Si on utilise getPopular => $movies->results
         //Sinon juste movies
         return $this->render('films/index.html.twig', [
